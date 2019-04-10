@@ -1,0 +1,129 @@
+/* wrappers */
+.auth {
+  max-width: 500px;
+  margin: 500px auto; 
+}
+
+.inputs {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.inputs .input-wrapper {
+  width: 100%;
+  position: relative;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* input */
+.input-wrapper input {
+  margin-left: 15px;
+  margin-right: 15px;
+  padding: 17px 0 17px 16px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  outline: none;
+  background-color: #F6F8F9;
+  font-size: 14px;
+  line-height: 18px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.056px;
+}
+
+.input-wrapper input:hover {
+  border: 1px solid #D9E1E5;
+}
+
+.input-wrapper input:focus {
+  border: 1px solid #D9E1E5;
+  background-color: #FFFFFF;
+}
+
+.input-wrapper input:focus ~ label {
+  background-color: #FFFFFF;
+}
+
+/* label */
+.input-wrapper label {
+  position: absolute;
+  padding: 6px;
+  top: 44%;
+  left: 28px;
+  color: #9CA0A3;
+  font-size: 14px;
+  line-height: 18px;
+  transition: all .1s ease-in-out;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.056px;
+}
+
+.input-wrapper.active label {
+  top: 6px;
+  background-color: #FFFFFF;
+}
+
+.input-wrapper.active.editing label {
+  background-color: #FFFFFF;
+}
+
+.input-wrapper.not-empty label {
+  background-color: transparent;
+}
+
+/* autofill */
+.input-wrapper input:-webkit-autofill,
+.input-wrapper input:-webkit-autofill:hover,
+.input-wrapper input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #F6F8F9 inset;
+  box-shadow: 0 0 0 30px #F6F8F9 inset;
+}
+
+.input-wrapper input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 30px white inset;
+  box-shadow: 0 0 0 30px white inset;
+  border: 1px solid #D9E1E5;
+}
+
+.input-wrapper input:-webkit-autofill:focus ~ label {
+  background-color: white;
+}
+
+@keyframes autofill {
+  100% {
+    background: white;
+    color: inherit;
+  }
+}
+  
+  @-webkit-keyframes autofill {
+  100% {
+    background: white;
+    color: inherit;
+  }
+}
+
+@keyframes onAutoFillStart {  from {/**/}  to {/**/}}
+@keyframes onAutoFillCancel {  from {/**/}  to {/**/}}
+
+input:-webkit-autofill {
+  animation-name: onAutoFillStart;
+}
+input:not(:-webkit-autofill) {
+  animation-name: onAutoFillCancel;
+}
+
+.input-wrapper  label.is-autofilled {
+  top: 6px!important;
+}
